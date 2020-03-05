@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ListViewXamarin"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="ListViewXamarin.MainPage">
+    <ContentPage.BindingContext>
+        <local:ViewModel x:Name="viewmodel"/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Text="Binding ItemsSource from JSON File" BackgroundColor="SlateBlue" FontSize="18" FontAttributes="Bold" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <syncfusion:SfListView x:Name="listView" ItemSize="70" ItemSpacing="5" Grid.Row="1"
+                               BackgroundColor="AliceBlue" ItemsSource="{Binding ItemsSource}">
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Text="Customer Name  " HorizontalOptions="Start" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
+                            <Label Grid.Row="1" Grid.Column="0" Text="Customer Country  " HorizontalOptions="Start" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
+
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding [Name]}" HorizontalOptions="Start" TextColor="Black" FontSize="16" WidthRequest="100"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding [Country]}" HorizontalOptions="Start" TextColor="Black" WidthRequest="100"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+        </syncfusion:SfListView>
+
+    </Grid>
+</ContentPage>
