@@ -1,5 +1,4 @@
-﻿using Syncfusion.DataSource;
-using Syncfusion.ListView.XForms;
+﻿using Syncfusion.ListView.XForms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

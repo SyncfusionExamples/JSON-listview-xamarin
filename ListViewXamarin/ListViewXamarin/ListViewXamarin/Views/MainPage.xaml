@@ -7,7 +7,9 @@
     <ContentPage.BindingContext>
         <local:ViewModel x:Name="viewmodel"/>
     </ContentPage.BindingContext>
-
+    <ContentPage.Resources>
+        <local:DynamicToPathValueConverter x:Key="converter"/>
+    </ContentPage.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -26,13 +28,9 @@
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Grid.Column="0" Text="Customer Name  " HorizontalOptions="Start" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
-                            <Label Grid.Row="1" Grid.Column="0" Text="Customer Country  " HorizontalOptions="Start" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
-
-                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding [Name]}" HorizontalOptions="Start" TextColor="Black" FontSize="16" WidthRequest="100"/>
-                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding [Country]}" HorizontalOptions="Start" TextColor="Black" WidthRequest="100"/>
+                            <Label Grid.Column="0" Text="{Binding Converter={StaticResource converter}, ConverterParameter=Value1}" HorizontalOptions="Start" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
+                            <Label Grid.Column="1" Text="{Binding Converter={StaticResource converter}, ConverterParameter=Value2}" HorizontalOptions="Start" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
